@@ -11507,3 +11507,19 @@ html {
 .copyright {
   background-color: #1a252f;
 }
+
+td{
+  border: 1px solid gray;
+  text-align: center;
+  padding: 10px;
+}
+
+.done{
+  color: green;
+  font-weight: bold;
+}
+
+.not-done{
+  color: red;
+  font-weight: bold;
+}
