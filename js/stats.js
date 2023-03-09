@@ -13,7 +13,8 @@ fetch('https://my-json-server.typicode.com/LoickLeBorgne/todo-back-end/todolist'
     Tags.innerHTML = 'Tags';
     const deleteHeader = headerRow.insertCell();
     deleteHeader.innerHTML = 'Action';
-
+    const finishHeader = headerRow.insertCell();
+    finishHeader.innerHTML = 'Finition';
     // Parcours des éléments de la liste et ajout dans le tableau HTML
     data.forEach(todo => {
       const row = table.insertRow();
@@ -28,14 +29,18 @@ fetch('https://my-json-server.typicode.com/LoickLeBorgne/todo-back-end/todolist'
       isCompleteHeader.classList.add('blue');
       Tags.classList.add('blue');
       deleteHeader.classList.add('blue');
-      
+      finishHeader.classList.add('blue');
+      textCell.classList.add('todo');
       const tagsCell = row.insertCell();
       tagsCell.innerHTML = todo.Tags;
       
       // Ajout d'un bouton de suppression
       const deleteCell = row.insertCell();
+      const finishCell = row.insertCell();
       const deleteButton = document.createElement('button');
+      const finishButton = document.createElement('button');
       deleteButton.innerHTML = 'Retirer';
+      finishButton.innerHTML = 'Fini';
       deleteButton.onclick = () => {
         if (isCompleteCell.classList.contains('done')) {
           table.deleteRow(row.rowIndex);
@@ -44,6 +49,7 @@ fetch('https://my-json-server.typicode.com/LoickLeBorgne/todo-back-end/todolist'
         }
       };
       deleteCell.appendChild(deleteButton);
+      finishCell.appendChild(finishButton);
     });
     
     // Ajout du tableau dans le DOM

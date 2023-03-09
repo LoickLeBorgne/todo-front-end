@@ -11526,4 +11526,10 @@ td{
 
 .blue{
   color: #1abc9c;
+  font-weight: bold !important;
+  font-size: 20px;
+}
+
+.todo{
+  color: #fd7e14;
 }
