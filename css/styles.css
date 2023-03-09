@@ -11516,10 +11516,14 @@ td{
 
 .done{
   color: green;
-  font-weight: bold;
+  font-weight: bold !important;
 }
 
 .not-done{
   color: red;
-  font-weight: bold;
+  font-weight: bold !important;
+}
+
+.blue{
+  color: #1abc9c;
 }

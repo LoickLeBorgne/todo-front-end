@@ -24,6 +24,10 @@ fetch('https://my-json-server.typicode.com/LoickLeBorgne/todo-back-end/todolist'
 
       // Ajout des classes CSS
       isCompleteCell.classList.add(todo.is_complete ? 'done' : 'not-done'); 
+      textHeader.classList.add('blue');
+      isCompleteHeader.classList.add('blue');
+      Tags.classList.add('blue');
+      deleteHeader.classList.add('blue');
       
       const tagsCell = row.insertCell();
       tagsCell.innerHTML = todo.Tags;
