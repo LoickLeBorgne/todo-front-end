@@ -11517,11 +11517,13 @@ td{
 .done{
   color: green;
   font-weight: bold !important;
+  font-size: 20px
 }
 
 .not-done{
   color: red;
   font-weight: bold !important;
+  font-size: 20px
 }
 
 .blue{
@@ -11529,7 +11531,105 @@ td{
   font-weight: bold !important;
   font-size: 20px;
 }
+.todo {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  /* margin: 0px 18px; */
+  margin-bottom: 10px;
+  /* padding: 10px; */
+  border: 2px solid #2c3e50;
+  border-radius: 4px;
 
-.todo{
-  color: #fd7e14;
+  height: 240px;
 }
+
+
+  
+.delete
+{
+  border: 1px solid #2c3e50;
+  background-color: #ffffff;
+  padding: 5px;
+  width: 150px;
+  margin-top: 15px;
+  color: #2c3e50;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  cursor: pointer;
+  transition: .9s;
+  border-radius: 5px;
+ }
+
+ .delete:hover{
+  border: 1px solid white;
+  color: white;
+  background-color: #c0392b;
+  cursor: pointer;
+  animation-name: button-animation;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+ }
+
+ .title{
+  color: #2c3e50;
+  font-weight: bold;
+  font-size: 25px;
+ }
+
+ .tags{
+  color: #2c3e50;
+  font-weight: bold;
+  font-size: 14px;
+ }
+
+
+ .todo a {
+  border: 2px solid #2c3e50;
+  background-color: #1abc9c;
+  padding: 10px;
+  width: 200px;
+  margin-top: 20px;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  transition: .6s;
+  border-radius: 3px;
+ }
+
+ .todo a:hover{
+  background-color: #2c3e50;
+  border: 2px solid #1abc9c;
+
+ }
+
+
+
+
+ .update
+{
+  border: 1px solid #2c3e50;
+  background-color: #ffffff;
+  padding: 5px;
+  width: 150px;
+  margin-top: 15px;
+  color: #2c3e50;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  cursor: pointer;
+  transition: .9s;
+  border-radius: 5px;
+ }
+
+
+ .update:hover{
+  border: 1px solid white;
+  color: white;
+  background-color: #2c3e50;
+  cursor: pointer;
+  animation-name: button-animation;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+ }
+

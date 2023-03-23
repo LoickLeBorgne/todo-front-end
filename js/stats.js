@@ -1,59 +1,64 @@
+// Récupération du nom d'utilisateur
+const prenom = localStorage.getItem('prenom');
+
+// On affiche le nom d'utilisateur
+const usernameElement = document.getElementById('username');
+usernameElement.innerHTML = 'Bonjour ' + prenom + ' !';
+
+// On donne du style au nom d'utilisateur
+usernameElement.style.color = "black";
+usernameElement.style.fontSize ="37px";
+usernameElement.style.marginTop ="40px";
+
 // Récupération des données JSON depuis l'API
 fetch('https://my-json-server.typicode.com/LoickLeBorgne/todo-back-end/todolist')
   .then(response => response.json())
   .then(data => {
-    // Création du tableau HTML
-    const table = document.createElement('table');
-    const headerRow = table.insertRow();
-    const textHeader = headerRow.insertCell();
-    textHeader.innerHTML = 'Chose à faire';
-    const isCompleteHeader = headerRow.insertCell();
-    isCompleteHeader.innerHTML = ' Status';
-    const Tags = headerRow.insertCell();
-    Tags.innerHTML = 'Tags';
-    const deleteHeader = headerRow.insertCell();
-    deleteHeader.innerHTML = 'Action';
-    const finishHeader = headerRow.insertCell();
-    finishHeader.innerHTML = 'Finition';
-    // Parcours des éléments de la liste et ajout dans le tableau HTML
+    console.log(data);
+    // Création de la div pour contenir les éléments de la liste
+    const listDiv = document.createElement('div');
+    listDiv.id = 'list';
+    
+    // Parcours des éléments de la liste et ajout dans la div
     data.forEach(todo => {
-      const row = table.insertRow();
-      const textCell = row.insertCell();
-      textCell.innerHTML = todo.text;
-      const isCompleteCell = row.insertCell();
-      isCompleteCell.innerHTML = todo.is_complete ? 'Réalisé' : 'À faire';
-
-      // Ajout des classes CSS
-      isCompleteCell.classList.add(todo.is_complete ? 'done' : 'not-done'); 
-      textHeader.classList.add('blue');
-      isCompleteHeader.classList.add('blue');
-      Tags.classList.add('blue');
-      deleteHeader.classList.add('blue');
-      finishHeader.classList.add('blue');
-      textCell.classList.add('todo');
-      const tagsCell = row.insertCell();
-      tagsCell.innerHTML = todo.Tags;
+      // Création de la div pour chaque élément de la liste
+      const todoDiv = document.createElement('div');
+      todoDiv.classList.add('todo');
       
-      // Ajout d'un bouton de suppression
-      const deleteCell = row.insertCell();
-      const finishCell = row.insertCell();
+      // Ajout du texte de la tâche / couleur
+      const textElement = document.createElement('span');
+      textElement.innerHTML = todo.text;
+      todoDiv.appendChild(textElement);
+      
+      // Ajout de l'état de la tâche
+      const isCompleteElement = document.createElement('span');
+      isCompleteElement.innerHTML = todo.is_complete ? 'Réalisé' : 'À faire';
+      isCompleteElement.classList.add(todo.is_complete ? 'done' : 'not-done');
+      todoDiv.appendChild(isCompleteElement);
+      
+      // Ajout des tags de la tâche
+      const tagsElement = document.createElement('span');
+      tagsElement.innerHTML = todo.Tags;
+      todoDiv.appendChild(tagsElement);
+      
+      // Ajout des boutons pour la suppression et la fin de la tâche
       const deleteButton = document.createElement('button');
-      const finishButton = document.createElement('button');
-      deleteButton.innerHTML = 'Retirer';
-      finishButton.innerHTML = 'Fini';
-      deleteButton.onclick = () => {
-        if (isCompleteCell.classList.contains('done')) {
-          table.deleteRow(row.rowIndex);
-        } else {
-          alert("L'élément doit être réalisé pour être supprimé.");
-        }
-      };
-      deleteCell.appendChild(deleteButton);
-      finishCell.appendChild(finishButton);
+      const detailButton = document.createElement('a');
+      
+      detailButton.href = 'item.html?id=' + todo.id; 
+      detailButton.innerHTML = 'Détails';
+      todoDiv.appendChild(detailButton);
+
+   
+      
+     
+      
+      // Ajout de la div de la tâche dans la div de la liste
+      listDiv.appendChild(todoDiv);
     });
     
-    // Ajout du tableau dans le DOM
+    // Ajout de la div de la liste dans le DOM
     const appElement = document.getElementById('app');
-    appElement.appendChild(table);
+    appElement.appendChild(listDiv);
   })
   .catch(error => console.error(error));
