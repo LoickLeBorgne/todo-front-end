@@ -18,7 +18,7 @@ fetch('https://my-json-server.typicode.com/LoickLeBorgne/todo-back-end/todolist/
     const listDiv = document.createElement('div');
     listDiv.id = 'list';
     
-    // Parcours des éléments de la liste et ajout dans la div
+
     
       // Création de la div pour chaque élément de la liste
       const todoDiv = document.createElement('div');
@@ -45,13 +45,22 @@ fetch('https://my-json-server.typicode.com/LoickLeBorgne/todo-back-end/todolist/
 
       todoDiv.appendChild(tagsElement);
       
-      // Ajout des boutons pour la suppression et la fin de la tâche
+      // Ajout des boutons pour la suppression/modification de la tâche/ réouverture de la tâche
       const deleteButton = document.createElement('button');
-      deleteButton.innerHTML = 'Retirer';
+      deleteButton.innerHTML = 'Supprimer';
       deleteButton.classList.add('delete');
 
+      const updateButton = document.createElement('button');
+      updateButton.innerHTML = 'Modifier';
+      updateButton.classList.add('update');
 
-  
+      const openButton = document.createElement('button');
+      openButton.innerHTML = 'Re-ouvrir';
+      openButton.classList.add('re-open');
+
+
+
+  // Quand on click sur le boutton supprimer
       deleteButton.onclick = () => {
         if (isCompleteElement.classList.contains('done')) {
           listDiv.removeChild(todoDiv);
@@ -59,24 +68,16 @@ fetch('https://my-json-server.typicode.com/LoickLeBorgne/todo-back-end/todolist/
           alert("L'élément doit être réalisé pour être supprimé.");
         }
       };
-      
-      todoDiv.appendChild(deleteButton);
-
-       // Ajout du bouton de modification
-
-
-       const updateButton = document.createElement('button');
-       updateButton.innerHTML = 'Modifier';
-       updateButton.classList.add('update');
- 
- 
-   
+    
+       
+        // Quand on click sur le boutton modifier
        updateButton.onclick = () => {
          
        };
        
        todoDiv.appendChild(updateButton);
-
+       todoDiv.appendChild(openButton);
+       todoDiv.appendChild(deleteButton);
       
       // Ajout de la div de la tâche dans la div de la liste
       listDiv.appendChild(todoDiv);
@@ -87,20 +88,6 @@ fetch('https://my-json-server.typicode.com/LoickLeBorgne/todo-back-end/todolist/
     appElement.appendChild(listDiv);
   })
   .catch(error => console.error(error));
-
-  // Le bouton de suppression de la tâche
-
-
-  
-  
-  
-  
-  
-   // On modifie la valeur du status 
-   
-
-
-
 
 
 

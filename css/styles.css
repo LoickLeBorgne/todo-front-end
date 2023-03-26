@@ -11538,13 +11538,10 @@ td{
   justify-content: center;
   align-items: center;
   text-align: center;
-  /* margin: 0px 18px; */
   margin-bottom: 10px;
-  /* padding: 10px; */
   border: 2px solid #2c3e50;
   border-radius: 4px;
-
-  height: 240px;
+  padding: 25px;
 }
 
 
@@ -11559,7 +11556,7 @@ td{
   color: #2c3e50;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   cursor: pointer;
-  transition: .9s;
+  transition: .7s;
   border-radius: 5px;
  }
 
@@ -11568,9 +11565,28 @@ td{
   color: white;
   background-color: #c0392b;
   cursor: pointer;
-  animation-name: button-animation;
-  animation-duration: 3s;
-  animation-iteration-count: infinite;
+  
+ }
+
+
+ .re-open{
+  border: 1px solid #2c3e50;
+  background-color: #ffffff;
+  padding: 5px;
+  width: 150px;
+  margin-top: 15px;
+  color: #2c3e50;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  cursor: pointer;
+  transition: .7s;
+  border-radius: 5px;
+ }
+
+ .re-open:hover{
+  border: 1px solid white;
+  color: white;
+  background-color: #1abc9c;
+  cursor: pointer;
  }
 
  .title{
@@ -11618,7 +11634,7 @@ td{
   color: #2c3e50;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   cursor: pointer;
-  transition: .9s;
+  transition: .7s;
   border-radius: 5px;
  }
 
@@ -11628,8 +11644,27 @@ td{
   color: white;
   background-color: #2c3e50;
   cursor: pointer;
-  animation-name: button-animation;
-  animation-duration: 3s;
-  animation-iteration-count: infinite;
  }
 
+
+ .addtask{
+  margin-bottom: 15px;
+ }
+
+
+ .submit__task{
+  border: 1px solid #2c3e50;
+  margin-top: 15px;
+ }
+
+ .fa-plus{
+  font-size: 20px;
+  transition: .7s;
+  text-align: center;
+ }
+
+ .submit__task:hover{
+    color: #1abc9c;
+    background-color: #2c3e50;
+    border: 1px solid #2c3e50;
+ }

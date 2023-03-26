@@ -36,8 +36,19 @@
     </header>
     <section class="page-section portfolio" id="portfolio">
         <div class="container d-flex align-items-center flex-column">
+            <h2>Ajouter une tâche</h2>
+            <form class="container d-flex align-items-center flex-column addtask" action="">
+                <input type="text" name="title" id="Title" placeholder="Nom de la tâche ">
+                <select name="status-select" id="status-select">
+                    <option value="">--Choisissez le status--</option>
+                    <option value="income">A faire</option>
+                    <option value="modify">A modifier</option>
+                    <option value="finish">Terminé</option>
+                </select>
+                <input type="text" name="tags" id="Tags" placeholder="Tags">
+                <button  class="submit__task" type="submit"><i class="fa-solid fa-plus"></i></button>
+            </form>
             <div id="app">
-                
             </div>
         </div>
     </section>

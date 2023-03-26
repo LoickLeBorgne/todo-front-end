@@ -62,3 +62,37 @@ fetch('https://my-json-server.typicode.com/LoickLeBorgne/todo-back-end/todolist'
     appElement.appendChild(listDiv);
   })
   .catch(error => console.error(error));
+
+
+// récupérer le formulaire et le bouton de soumission
+const form = document.querySelector('.addtask');
+const submitBtn = document.querySelector('.submit__task');
+
+// ajouter un écouteur d'événements pour le bouton de soumission
+submitBtn.addEventListener('click', (event) => {
+  event.preventDefault();
+
+  // récupérer les valeurs du formulaire
+  const title = document.querySelector('#Title').value;
+  const status = document.querySelector('#status-select').value;
+  const tags = document.querySelector('#Tags').value;
+
+  // créer un objet de tâche
+  const task = {
+    title: title,
+    status: status,
+    tags: tags
+  };
+
+  // récupérer le tableau existant ou créer un nouveau tableau
+  let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+  // ajouter la tâche à la liste des tâches
+  tasks.push(task);
+
+  // enregistrer la liste des tâches mise à jour dans le stockage local
+  localStorage.setItem('tasks', JSON.stringify(tasks));
+
+  // réinitialiser le formulaire
+  form.reset();
+});
