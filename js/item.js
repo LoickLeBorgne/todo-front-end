@@ -37,7 +37,7 @@ if (isLtodoTask) {
   // Ajout des tags de la tâche
   const tagsElement = document.createElement('span');
   tagsElement.innerHTML = lTodo.Tags;
-  tagsElement.textContent = "Tags : " + lTodo.Tags;
+  tagsElement.textContent = "Tags : " + lTodo.tags;
   tagsElement.classList.add('tags');
 
   todoDiv.appendChild(tagsElement);
